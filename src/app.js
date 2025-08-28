@@ -23,8 +23,8 @@ app.configure(express.rest());
 // Configure Socket.IO for real-time communication
 app.configure(socketio({
   cors: {
-    origin: "*",
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"]
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
   }
 }, (io) => {
   // Socket.IO connection handlers
@@ -136,7 +136,7 @@ app.post('/api/auth/login', (req, res) => {
       token: 'mock-jwt-token-' + Date.now(),
       user: {
         id: 1,
-        email: email,
+        email,
         name: 'Test User'
       }
     });
@@ -162,8 +162,8 @@ app.post('/api/auth/register', (req, res) => {
     message: 'User registered successfully',
     user: {
       id: Date.now(),
-      email: email,
-      name: name
+      email,
+      name
     }
   });
 });
@@ -234,7 +234,7 @@ app.post('/api/validate', (req, res) => {
 
   res.json({
     valid: isValid,
-    data: data,
+    data,
     length: data.length,
     timestamp: new Date().toISOString()
   });
